@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Marker Layout Prototype</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@100&display=swap" rel="stylesheet">
+	<script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+	<div class="row" >
+		<div class="col-md-6" >
+			<br>
+		<h1>Shōgun Marker Placement</h1>
+		<p>(This is a work in progress. Please ignore fonts/colors/general designs)</p>
+		<br>
+		<p>This model shows the standard Vicon FrontWaist 53-marker set.</p>
+		<br>
+		<p>
+		Place the wrist markers on either side of the wrist so that both markers are the same distance down the arm and as close to the joint center as possible.</p>
+		<br>
+		<p>Place the hand markers just before the knuckle of the index and pinky finger.</p>
+		<br>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum saepe molestiae dolores, consequatur numquam dicta magni vero at, consequuntur doloribus omnis provident alias debitis? Facere ratione repellendus quidem libero autem?</p>
+		</div>
+		<div class="col-md-6">
+			<model-viewer src="Models/Textured.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="Models/poster.webp" shadow-intensity="1" style="width:100%;height:80em;">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<h2>
+				Three Finger Setup
+			</h2>
+			<model-viewer src="Models/ThreeFinger.glb" ar ar-modes="webxr scene-viewer quick-look" camera-orbit="-64.39deg 81deg 0.6526m" field-of-view="30deg" min-camera-orbit="auto 81deg auto" max-camera-orbit="auto 81deg auto" camera-controls poster="Models/posterFive.webp" disable-zoom shadow-intensity="0" style="width:100%;height:50em;"></model-viewer>
+			<h6>
+				place a marker just before the first joint of the index, pinky, and thumb, so that it is not affected by rotation of the second joint.
+			</h6>
+			<p>
+			</p>
+		</div>
+		<div class="col-md-4">
+			<h2>
+				Five Finger Setup
+			</h2>
+			<model-viewer src="Models/FiveFinger.glb" ar ar-modes="webxr scene-viewer quick-look" camera-orbit="-64.39deg 81deg 0.6526m" field-of-view="30deg" min-camera-orbit="auto 81deg auto" max-camera-orbit="auto 81deg auto" camera-controls poster="Models/posterFive.webp" shadow-intensity="0" 
+			min-camera-orbit="auto auto 0.6526m" min-field-of-view="30deg" disable-zoom style="width:100%;height:50em;"></model-viewer>
+			<h6>
+				For 5 finger-marker setups, place the markers at the end of each of the five fingers
+			</h6>
+			<p>
+
+			</p>
+		</div>
+		<div class="col-md-4">
+			<h2>
+				Ten Finger Setup
+			</h2>
+			<model-viewer src="Models/TenFinger.glb" ar ar-modes="webxr scene-viewer quick-look" camera-orbit="-64.39deg 81deg 0.6526m" field-of-view="30deg" min-camera-orbit="auto 81deg auto" max-camera-orbit="auto 81deg auto" camera-controls poster="Models/posterFive.webp" shadow-intensity="0" 
+			min-camera-orbit="auto auto 0.6526m" min-field-of-view="30deg" disable-zoom style="width:100%;height:50em;"></model-viewer>
+			<h6>
+				For 10 finger-marker setups, place the markers at the end of each finger, and mid markers on the second phalange apart from the mid
+			</h6>
+			<p>
+
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<img src="Models/TestROM.gif"  style="width:100%;">
+		</div>
+		<div class="col-md-6">
+			<br>
+			<br>
+			<p>(currently a placeholder test. Will have textured Highres example of a rom)</p>
+			<br>
+			<p>Some text about good range of motion calibration</p>
+		</div>
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  </body>
+</html>

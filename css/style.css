@@ -1,0 +1,16 @@
+body {
+    background: rgb(101,97,97);
+    background: linear-gradient(11deg, rgba(101,97,97,1) 0%, rgb(7, 52, 61) 100%);
+    font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
+color: rgb(212, 212, 212);
+}
+h1 {
+    font-size: 84px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 30px;
+    font-weight: bold;
+}

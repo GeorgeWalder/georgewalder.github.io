@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Marker Layout Prototype</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@100&display=swap" rel="stylesheet">
+	<script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+
+  </head>
+  <body>
+    <div id="shell" class="container-fluid">
+
+    <div class="container-fluid">
+	<div class="row" >
+		<div class="col-md-6" >
+			<br>
+		<h1>Shogun Marker Proof of Concept</h1>
+		<p>FrontWaist Markerset example</p>
+		<br>
+		<p>toggles can be here for alt markersets and finger counts (these buttons not working)</p>
+    
+        <button>FrontWaist</button>
+        <button>SideWaist</button>
+        <button>Production</button>
+        <a href="https://en.wikipedia.org/wiki/No!"><button>Dog Markerset</button></a>
+        <br>
+        <button>ThreeFinger</button>
+        <button>five finger</button>
+        <button>Ten Finger</button>
+        <button>Ect...</button>
+		<br>
+        <p>Below options will swap out Animations/Options. These buttons work :D <br>(The hotspot toggles are still a bit scuffed but in due time)</p>
+        <div >
+
+        <button type="button" onclick="swapRom()">ROM</button>
+        <button type="button" onclick="swapOffset()">Offset Marker Example</button>
+        <button type="button" onclick="swapMarkers()">Marker Info</button>
+        </div>
+<br>
+<p>Example of what we could do with animations, for this we created hotspots over the offset markers, this paragraph here would explain what they're usefull for and where you could put them, but we also captured an animation of pointing to and gestering to the locations of the markers. </p>	
+    <button id="toggleOffsets" type="button" onclick="toggleClass()">Click to hide or show Offset Markers</button>	</div>
+<div class="col-md-6">
+<div id="default" class="selected">
+  <model-viewer src="Models/correct.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="Models/poster.webp" shadow-intensity="1" style="width:100%;height:80em;" autoplay interaction-prompt="none" >
+    </model-viewer>
+  </div>
+    <div id="offset" class="hidden">
+    <model-viewer id="offsets" src="Models/offset.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="0" camera-orbit="-88.14deg 85.09deg 454.6m" field-of-view="30deg" style="width:100%;height:80em;" autoplay interaction-prompt="none" 
+    >
+        <button class="Hotspot" slot="hotspot-1" data-surface="0 0 1876 1901 1896 0.243 0.243 0.514" data-visibility-attribute="visible"></button><button id="offset" class="Hotspot" slot="hotspot-2" data-surface="0 0 1756 1781 1776 0.943 0.053 0.003" data-visibility-attribute="visible"></button><button class="Hotspot" slot="hotspot-3" data-surface="0 0 1461 1516 1536 0.074 0.742 0.184" data-visibility-attribute="visible"></button><button class="Hotspot" slot="hotspot-4" data-surface="0 0 1397 1342 1390 0.401 0.341 0.258" data-visibility-attribute="visible"></button><button class="Hotspot" slot="hotspot-5" data-surface="0 0 3537 3551 3546 0.100 0.496 0.404" data-visibility-attribute="visible"></button><button class="Hotspot" slot="hotspot-6" data-surface="0 0 5337 5287 5338 0.327 0.100 0.573" data-visibility-attribute="visible"></button><button class="Hotspot" slot="hotspot-7" data-surface="0 0 2653 2718 2747 0.174 0.294 0.532" data-visibility-attribute="visible"></button><button class="Hotspot" slot="hotspot-9" data-surface="0 0 5455 5450 5403 0.676 0.096 0.228" data-visibility-attribute="visible"></button>
+      </model-viewer>
+      </div>
+      <div id="rom" class="hidden">
+        <model-viewer src="Models/RON.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="0" camera-orbit="-88.14deg 85.09deg 454.6m" field-of-view="30deg" style="width:100%;height:80em;" autoplay interaction-prompt="none" >
+        </div>
+        <div id="markers" class="hidden">
+        <model-viewer src="Models/markers.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" autoplay style="width:100%;height:80em;" autoplay interaction-prompt="none">
+          <button class="Hotspot" slot="hotspot-1" data-surface="4 0 358 414 393 0.385 0.333 0.282" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">ARIEL</div>
+          </button><button class="Hotspot" slot="hotspot-2" data-surface="4 0 188 244 223 0.274 0.388 0.338" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LBHD</div>
+          </button><button class="Hotspot" slot="hotspot-3" data-surface="4 0 273 329 308 0.158 0.340 0.502" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RBHD</div>
+          </button><button class="Hotspot" slot="hotspot-4" data-surface="4 0 53 74 72 0.257 0.655 0.088" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RFHD</div>
+          </button><button class="Hotspot" slot="hotspot-5" data-surface="4 0 138 159 157 0.406 0.171 0.423" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LFHD</div>
+          </button><button class="Hotspot" slot="hotspot-6" data-surface="1 0 106 141 140 0.461 0.234 0.306" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">C7</div>
+          </button><button class="Hotspot" slot="hotspot-7" data-surface="1 0 191 226 225 0.815 0.012 0.173" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">T10</div>
+          </button><button class="Hotspot" slot="hotspot-8" data-surface="1 0 2951 2914 2974 0.570 0.011 0.418" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LBSH</div>
+          </button><button class="Hotspot" slot="hotspot-9" data-surface="1 0 3001 3036 3035 0.239 0.616 0.145" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RBSH</div>
+          </button><button class="Hotspot" slot="hotspot-10" data-surface="1 0 2311 2342 2340 0.709 0.160 0.131" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LFSH</div>
+          </button><button class="Hotspot" slot="hotspot-11" data-surface="1 0 16 47 45 0.532 0.363 0.105" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RFSH</div>
+          </button><button class="Hotspot" slot="hotspot-12" data-surface="1 0 611 663 641 0.594 0.046 0.361" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">CLAV</div>
+          </button><button class="Hotspot" slot="hotspot-13" data-surface="1 0 696 748 726 0.560 0.033 0.407" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">STRN</div>
+          </button><button class="Hotspot" slot="hotspot-14" data-surface="1 0 3440 3492 3470 0.376 0.031 0.593" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">MFWT</div>
+          </button><button class="Hotspot" slot="hotspot-15" data-surface="1 0 866 918 896 0.506 0.061 0.433" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LFWT</div>
+          </button><button class="Hotspot" slot="hotspot-16" data-surface="1 0 781 812 810 0.350 0.488 0.162" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RFWT</div>
+          </button><button class="Hotspot" slot="hotspot-17" data-surface="1 0 273 311 333 0.448 0.417 0.135" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LBWT</div>
+          </button><button class="Hotspot" slot="hotspot-18" data-surface="1 0 3121 3082 3115 0.665 0.105 0.230" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">MBWT</div>
+          </button><button class="Hotspot" slot="hotspot-19" data-surface="1 0 358 396 418 0.249 0.482 0.269" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RBWT</div>
+          </button><button class="Hotspot" slot="hotspot-20" data-surface="1 0 3865 3894 3896 0.420 0.157 0.423" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RUPA</div>
+          </button><button class="Hotspot" slot="hotspot-21" data-surface="1 0 3284 3298 3293 0.053 0.462 0.485" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RELB</div>
+          </button><button class="Hotspot" slot="hotspot-22" data-surface="1 0 3340 3382 3399 0.595 0.075 0.330" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RIEL</div>
+          </button><button class="Hotspot" slot="hotspot-23" data-surface="1 0 1886 1916 1938 0.119 0.726 0.154" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RFRM</div>
+          </button><button class="Hotspot" slot="hotspot-24" data-surface="1 0 2054 2109 2088 0.283 0.514 0.203" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">ROWR</div>
+          </button><button class="Hotspot" slot="hotspot-25" data-surface="1 0 2004 1999 1970 0.029 0.040 0.931" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RIWR</div>
+          </button><button class="Hotspot" slot="hotspot-26" data-surface="1 0 2139 2194 2173 0.160 0.681 0.159" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">ROHAND</div>
+          </button><button class="Hotspot" slot="hotspot-27" data-surface="1 0 2224 2279 2258 0.543 0.340 0.117" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RIHAND</div>
+          </button><button class="Hotspot" slot="hotspot-28" data-surface="1 0 1066 1088 1084 0.756 0.127 0.117" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LITH</div>
+          </button><button class="Hotspot" slot="hotspot-29" data-surface="1 0 1121 1152 1150 0.146 0.804 0.050" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LKNE</div>
+          </button><button class="Hotspot" slot="hotspot-30" data-surface="1 0 3525 3556 3554 0.264 0.722 0.014" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LKNI</div>
+          </button><button class="Hotspot" slot="hotspot-31" data-surface="1 0 981 1003 999 0.875 0.038 0.087" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RITH</div>
+          </button><button class="Hotspot" slot="hotspot-32" data-surface="1 0 3610 3641 3639 0.102 0.456 0.442" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RKNI</div>
+          </button><button class="Hotspot" slot="hotspot-33" data-surface="1 0 3724 3726 3719 0.166 0.708 0.126" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RKNE</div>
+          </button><button class="Hotspot" slot="hotspot-34" data-surface="1 0 1291 1322 1320 0.163 0.770 0.067" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LSHN</div>
+          </button><button class="Hotspot" slot="hotspot-35" data-surface="1 0 1206 1237 1235 0.310 0.606 0.084" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RSHN</div>
+          </button><button class="Hotspot" slot="hotspot-37" data-surface="1 0 1445 1476 1479 0.833 0.064 0.103" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LANK</div>
+          </button><button class="Hotspot" slot="hotspot-38" data-surface="1 0 1374 1430 1427 0.023 0.076 0.900" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RANK</div>
+          </button><button class="Hotspot" slot="hotspot-39" data-surface="1 0 1801 1853 1831 0.189 0.593 0.218" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RMT5</div>
+          </button><button class="Hotspot" slot="hotspot-40" data-surface="1 0 1650 1664 1659 0.198 0.048 0.754" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LMT5</div>
+          </button><button class="Hotspot" slot="hotspot-41" data-surface="1 0 1579 1545 1574 0.041 0.754 0.205" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LTOE</div>
+          </button><button class="Hotspot" slot="hotspot-42" data-surface="1 0 1716 1747 1745 0.692 0.066 0.242" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RTOE</div>
+          </button><button class="Hotspot" slot="hotspot-43" data-surface="1 0 4033 4089 4086 0.727 0.084 0.188" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LMTI</div>
+          </button><button class="Hotspot" slot="hotspot-44" data-surface="1 0 3983 3949 3978 0.049 0.513 0.437" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">RMTI</div>
+          </button><button class="Hotspot" slot="hotspot-45" data-surface="1 0 2521 2487 2522 0.024 0.418 0.558" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LUPA</div>
+          </button><button class="Hotspot" slot="hotspot-46" data-surface="1 0 2419 2437 2438 0.001 0.698 0.301" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LELB</div>
+          </button><button class="Hotspot" slot="hotspot-47" data-surface="1 0 3820 3781 3814 0.122 0.692 0.186" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LFRM</div>
+          </button><button class="Hotspot" slot="hotspot-48" data-surface="1 0 2691 2657 2692 0.184 0.613 0.203" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LOWR</div>
+          </button><button class="Hotspot" slot="hotspot-49" data-surface="1 0 2571 2602 2600 0.647 0.017 0.336" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LIWR</div>
+          </button><button class="Hotspot" slot="hotspot-50" data-surface="1 0 2729 2778 2797 0.694 0.134 0.172" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LOHAND</div>
+          </button><button class="Hotspot" slot="hotspot-51" data-surface="1 0 2816 2883 2858 0.931 0.048 0.021" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LIHAND</div>
+          </button><button class="Hotspot" slot="hotspot-52" data-surface="1 0 3160 3216 3196 0.303 0.460 0.237" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation">LIEL</div>
+          </button>
+          </div>
+        </model-viewer>  
+      </div>
+      </div>
+    </div>
+    </div>
+      </model-viewer>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  </body>
+</html>

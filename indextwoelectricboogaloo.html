@@ -26,27 +26,30 @@
 		<p>FrontWaist Markerset example</p>
 		<br>
 		<p>toggles can be here for alt markersets and finger counts (these buttons not working)</p>
-    
-        <button>FrontWaist</button>
-        <button>SideWaist</button>
-        <button>Production</button>
-        <a href="https://en.wikipedia.org/wiki/No!"><button>Dog Markerset</button></a>
-        <br>
-        <button>ThreeFinger</button>
-        <button>five finger</button>
-        <button>Ten Finger</button>
-        <button>Ect...</button>
+        <div class="buttonCenter">
+        <button class="button-39">FrontWaist</button>
+        <button class="button-39">SideWaist</button>
+        <button class="button-39">Production</button>
+        <a href="https://en.wikipedia.org/wiki/No!"><button class="button-39">Dog Markerset</button></a>
+        <br><br>
+        <button class="button-39">ThreeFinger</button>
+        <button class="button-39">five finger</button>
+        <button class="button-39">Ten Finger</button>
+        <button class="button-39">Ect...</button>
+    </div>
 		<br>
-        <p>Below options will swap out Animations/Options. These buttons work :D <br>(The hotspot toggles are still a bit scuffed but in due time)</p>
+        <br>
+        <p>Below options will swap out Animations/Options. These buttons work :D</p>
         <div >
-
-        <button type="button" onclick="swapRom()">ROM</button>
-        <button type="button" onclick="swapOffset()">Offset Marker Example</button>
-        <button type="button" onclick="swapMarkers()">Marker Info</button>
+            <div class="button">
+        <button type="button" class="button-39" onclick="swapRom()">ROM</button>
+        <button type="button" class="button-39" onclick="swapOffset()">Offset Marker Example</button>
+        <button type="button" class="button-39" onclick="swapMarkers()">Marker Info</button>
         </div>
-<br>
-<p>Example of what we could do with animations, for this we created hotspots over the offset markers, this paragraph here would explain what they're usefull for and where you could put them, but we also captured an animation of pointing to and gestering to the locations of the markers. </p>	
-    <button id="toggleOffsets" type="button" onclick="toggleClass()">Click to hide or show Offset Markers</button>	</div>
+    </div>
+<br><br>
+<p id="OffsetText">These are some examples of what we could do with this concept. Click any of the above three options for demos. <br> &#x2022 ROM shows the ability to capture animations and apply them to a mesh, and could be used for other examples in Nexus or physical actions such as a wand wave for example. <br> &#x2022 Offset utilizes this as well by having the animation gesture at the marker locations, while also highlighting those markers on the mesh. <br> &#x2022 Marker Info extends on highlighting spots in the mesh, and the ability to add text. When a marker is clicked, the text in this location can be swapped out with information on that marker, what its contributing to, ext. </p>
+    <button id="toggleOffsets" type="button" class="button-28 " onclick="toggleClass()">Click to hide or show Offset Markers and marker info</button><p></p></div>
 <div class="col-md-6">
 <div id="default" class="selected">
   <model-viewer src="Models/correct.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="Models/poster.webp" shadow-intensity="1" style="width:100%;height:80em;" autoplay interaction-prompt="none" >
@@ -59,11 +62,11 @@
       </model-viewer>
       </div>
       <div id="rom" class="hidden">
-        <model-viewer src="Models/RON.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="0" camera-orbit="-88.14deg 85.09deg 454.6m" field-of-view="30deg" style="width:100%;height:80em;" autoplay interaction-prompt="none" >
+        <model-viewer src="Models/RON.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="0" camera-orbit="-95.54deg 94.34deg 440.3m" field-of-view="30deg" style="width:100%;height:80em;" autoplay interaction-prompt="none" >
         </div>
         <div id="markers" class="hidden">
         <model-viewer src="Models/markers.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" autoplay style="width:100%;height:80em;" autoplay interaction-prompt="none">
-          <button class="Hotspot" slot="hotspot-1" data-surface="4 0 358 414 393 0.385 0.333 0.282" data-visibility-attribute="visible">
+          <button onclick="swapRom()" class="Hotspot" slot="hotspot-1" data-surface="4 0 358 414 393 0.385 0.333 0.282" data-visibility-attribute="visible">
               <div class="HotspotAnnotation">ARIEL</div>
           </button><button class="Hotspot" slot="hotspot-2" data-surface="4 0 188 244 223 0.274 0.388 0.338" data-visibility-attribute="visible">
               <div class="HotspotAnnotation">LBHD</div>
